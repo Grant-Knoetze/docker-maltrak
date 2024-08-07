@@ -1,5 +1,10 @@
 # docker-maltrak
 
+## Configs
+In addition to creating a virtual environment within the Docker container, the file `local.yml` is copied into `caldera/conf/` for customized server configuration. Modify its values before building the image or within the container's shell, before running `server.py`
+
+For documentation on the configurations, see [Caldera's Server Configuration](https://caldera.readthedocs.io/en/latest/Server-Configuration.html#configuration-file)
+
 ## Linux
 
 ### Build the Caldera image

@@ -28,26 +28,15 @@ RUN venv/bin/pip install marshmallow-enum==1.5.1
 RUN venv/bin/pip install ldap3==2.7
 RUN venv/bin/pip install aioftp==0.21.4
 
+
 # Ensure local.yml is properly created
 RUN if [ ! -f /home/caldera/caldera/conf/local.yml ]; then \
         echo "Creating local.yml with default values"; \
         crypt_salt=$(openssl rand -base64 32 | tr -d '\n'); \
         encryption_key=$(openssl rand -base64 32 | tr -d '\n'); \
-        echo "crypt_salt: \"$crypt_salt\"" > /home/caldera/caldera/conf/local.yml; \
-        echo "encryption_key: \"$encryption_key\"" >> /home/caldera/caldera/conf/local.yml; \
-        echo "red: LabPass1" >> /home/caldera/caldera/conf/local.yml; \
-        echo "blue: LabPass1" >> /home/caldera/caldera/conf/local.yml; \
-        echo "requirements:" >> /home/caldera/caldera/conf/local.yml; \
-        echo "  requirement1: param1" >> /home/caldera/caldera/conf/local.yml; \
-        echo "  requirement2: param2" >> /home/caldera/caldera/conf/local.yml; \
-        echo "plugins: []" >> /home/caldera/caldera/conf/local.yml; \
-        echo "app:" >> /home/caldera/caldera/conf/local.yml; \
-        echo "  contact:" >> /home/caldera/caldera/conf/local.yml; \
-        echo "    dns: localhost:53" >> /home/caldera/caldera/conf/local.yml; \
-        echo "    tcp: localhost:8080" >> /home/caldera/caldera/conf/local.yml; \
-        echo "    udp: localhost:9000" >> /home/caldera/caldera/conf/local.yml; \
-        echo "    slack: {api_key: xoxb-000000000000-000000000000-XXXXXXXXXXXXXXXXXXXXXXXX}" >> /home/caldera/caldera/conf/local.yml; \
      fi
+# Copy config file
+COPY local.yml /home/caldera/caldera/conf/local.yml
 
 # Adjust permissions and ownership
 RUN chmod -R 777 /home/caldera/caldera

@@ -89,6 +89,7 @@ To access the Caldera web interface on your host machine:
 - Ensure you have installed [WSL's](https://docs.docker.com/desktop/install/windows-install/#system-requirements) latest release
 - Ensure you have [Docker](https://docs.docker.com/desktop/install/windows-install/) installed 
 - Turn on Docker [Desktop WSL ](https://docs.docker.com/desktop/wsl)
+- - Ensure you have installed [Chocolatey](https://chocolatey.org/install)
 
 
 ### Setup

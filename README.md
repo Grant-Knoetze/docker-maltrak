@@ -37,6 +37,14 @@ then in your browser, add that IP followed by the mapped port ex: `http://172.1x
 
 ## Windows
 
+There are 2 Methods to setup the Caldera docker image on Windows:
+
+1. Manual Setup
+
+2. Windows Batch Script
+
+## Method 1: Manual Setup
+
 ### Prerequisites
 If you have downloaded Docker Desktop for Windows, 
 
@@ -63,6 +71,31 @@ If you have downloaded Docker Desktop for Windows,
 `docker exec -it caldera-demo3 bash`
 
 This opens up the container's bash where we can run `venv/bin/python server.py -E local`
+
+### Login to Caldera on host machine
+
+To access the Caldera web interface on your host machine:
+
+- Open the Docker Desktop application
+- Click on the "Containers/Apps" tab
+- Locate the `caldera-demo3` container and copy the IP address listed under the "IPAddress" column
+- Open a web browser and navigate to http://<IPAddress>:8888/
+
+
+## Method 2: Windows Batch Script
+### Prerequisites
+
+
+- Ensure you have installed [WSL's](https://docs.docker.com/desktop/install/windows-install/#system-requirements) latest release
+- Ensure you have [Docker](https://docs.docker.com/desktop/install/windows-install/) installed 
+- Turn on Docker [Desktop WSL ](https://docs.docker.com/desktop/wsl)
+- - Ensure you have installed [Chocolatey](https://chocolatey.org/install)
+
+
+### Setup
+- In your windows machine, double click on the [setup_caldera.bat](setup_caldera.bat) script or run it via command line.
+- Follow the on-screen instructions. You will need to restart the batch script if Chocolatey and/or Docker were not previously installed.
+
 
 ### Login to Caldera on host machine
 
